@@ -49,7 +49,9 @@ def fetch_jovian_planets():
 
     output_dir = Path(__file__).resolve().parent.parent / "data"
     output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = "data/jovian_planets_raw.csv"
+    raw_dir = output_dir / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    output_path = raw_dir / "jovian_planets_raw.csv"
     df.to_csv(output_path, index=False, encoding="utf-8")
 
     print(f"Data successfully fetched and saved to {output_path}")
